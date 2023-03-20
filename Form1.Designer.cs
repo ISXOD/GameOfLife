@@ -100,6 +100,11 @@ namespace GameOfLife
             // nudDensity
             // 
             this.nudDensity.Location = new System.Drawing.Point(39, 106);
+            this.nudDensity.Maximum = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
             this.nudDensity.Minimum = new decimal(new int[] {
             2,
             0,
@@ -110,7 +115,7 @@ namespace GameOfLife
             this.nudDensity.TabIndex = 3;
             this.nudDensity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nudDensity.Value = new decimal(new int[] {
-            2,
+            25,
             0,
             0,
             0});
@@ -135,7 +140,7 @@ namespace GameOfLife
             0,
             0});
             this.nudResolution.Minimum = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -181,9 +186,8 @@ namespace GameOfLife
             this.ClientSize = new System.Drawing.Size(1127, 747);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "GameOfLife";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
