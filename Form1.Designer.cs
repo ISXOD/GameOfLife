@@ -65,7 +65,6 @@ namespace GameOfLife
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.nudResolution);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
@@ -73,7 +72,6 @@ namespace GameOfLife
             this.splitContainer1.Size = new System.Drawing.Size(1127, 747);
             this.splitContainer1.SplitterDistance = 227;
             this.splitContainer1.TabIndex = 0;
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
             // bStop
             // 
@@ -129,7 +127,6 @@ namespace GameOfLife
             this.label2.Size = new System.Drawing.Size(60, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Density";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // nudResolution
             // 

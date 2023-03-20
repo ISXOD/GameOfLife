@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace GameOfLife
         private Graphics graphics;
         private int resolution;
         private GameEngine gameEngine;
+        private Stopwatch stopwatch = new Stopwatch();
         public Form1()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace GameOfLife
             {
                 return;
             }
-           
+
             
             nudResolution.Enabled = false;
             nudDensity.Enabled = false;
@@ -77,24 +79,13 @@ namespace GameOfLife
             nudResolution.Enabled = true;
             nudDensity.Enabled = true;
         }
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            stopwatch.Start();
             DrawNextGeneration();
+            stopwatch.Stop();
+            var timeDrawGeneration = stopwatch.ElapsedMilliseconds;
         }
 
         private void bStart_Click(object sender, EventArgs e)
@@ -125,6 +116,5 @@ namespace GameOfLife
                 gameEngine.RemoveCell(x, y);
             }
         }
-        
     }
 }
