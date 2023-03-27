@@ -51,13 +51,14 @@ namespace GameOfLife
 
         private void DrawNextGeneration()
         {
+            stopwatch.Start();
             graphics.Clear(Color.Black);
-            var field = gameEngine.GetCurrentGeneration();
+            var field = gameEngine.field;
             for (int x = 0; x < field.GetLength(0); x++)
             {
                 for (int y = 0; y < field.GetLength(1); y++)
                 {
-                    if (field[x, y])
+                    if ((field[x, y] & 1) == 1)
                     {
                         graphics.FillRectangle(Brushes.Crimson, x * resolution, y * resolution, resolution - 1, resolution - 1);
                     }
@@ -65,6 +66,11 @@ namespace GameOfLife
             }
             pictureBox1.Refresh();
             Text = $"Generation {gameEngine.CurrentGeneration}";
+            if (gameEngine.CurrentGeneration == 100)
+            {
+                stopwatch.Stop();
+                var timeDrawGeneration = stopwatch.ElapsedMilliseconds;
+            }
             gameEngine.NextGeneration();
         }
 
@@ -82,10 +88,7 @@ namespace GameOfLife
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            stopwatch.Start();
             DrawNextGeneration();
-            stopwatch.Stop();
-            var timeDrawGeneration = stopwatch.ElapsedMilliseconds;
         }
 
         private void bStart_Click(object sender, EventArgs e)
